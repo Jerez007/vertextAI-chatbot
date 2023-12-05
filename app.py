@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import vertexai
-from vertex.ai.language_models import ChatModel
+from vertexai.language_models import ChatModel
 from config import PROJECT_ID
 import os
 
@@ -11,12 +11,12 @@ vertexai.init(project=PROJECT_ID, location=LOCATION)
 
 def create_session():
     chat_model = ChatModel.from_pretrained("chat-bison@001")
-    chat = chat_model.start_chart()
+    chat = chat_model.start_chat()
     return chat
 
 def response(chat, message):
     parameters = {
-        "temperate": 0.2,
+        "temperature": 0.2,
         "max_output_tokens": 256,
         "top_p": 0.8,
         "top_k": 40
