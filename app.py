@@ -14,6 +14,7 @@ def create_session():
     chat = chat_model.start_chat()
     return chat
 
+# test
 def response(chat, message):
     parameters = {
         "temperature": 0.2,
